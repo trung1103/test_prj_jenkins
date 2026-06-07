@@ -17,7 +17,7 @@ pipeline {
             steps {
                 bat '''
                     if not exist build mkdir build
-                    g++ -o %EXE_PATH% main.cpp -std=c++17
+                    "C:\msys64\mingw64\bin\g++" -o %EXE_PATH% main.cpp -std=c++17
                 '''
             }
         }
