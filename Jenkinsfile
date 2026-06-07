@@ -37,24 +37,4 @@ pipeline {
         }
     }
 
-    post {
-        success {
-            emailext(
-                subject: "BUILD SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: """<p>Build <b>${env.JOB_NAME} #${env.BUILD_NUMBER}</b> thanh cong.</p>
-                         <p><a href="${env.BUILD_URL}">Xem chi tiet</a></p>""",
-                to: 'linhtrung3011@gmail.com',
-                mimeType: 'text/html'
-            )
-        }
-        failure {
-            emailext(
-                subject: "BUILD FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: """<p>Build <b>${env.JOB_NAME} #${env.BUILD_NUMBER}</b> THAT BAI.</p>
-                         <p><a href="${env.BUILD_URL}console">Xem console log</a></p>""",
-                to: 'linhtrung3011@gmail.com',
-                mimeType: 'text/html'
-            )
-        }
-    }
 }
